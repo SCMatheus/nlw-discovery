@@ -1,9 +1,11 @@
+var	mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+	var grayscale   = L.tileLayer(mbUrl, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1})
+
+
 //create map
-const map = L.map('mapid').setView([-16.6817445,-49.2562558], 15);
-
-//create and add tileLayer
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+const map = L.map('mapid', {
+  layers: grayscale}).setView([-16.6817445,-49.2562558], 15);
 
 //create icon
 const icon = L.icon({
